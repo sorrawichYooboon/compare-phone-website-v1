@@ -1,0 +1,207 @@
+@import "../../../../styles/variables.scss";
+
+.card {
+  display: flex;
+  margin-left: 25px;
+  flex-direction: column;
+  align-items: center;
+  @include animation-fadein;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 10px;
+    @include center-div;
+    color: $primary-color;
+
+    &-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      width: 141px;
+      white-space: nowrap;
+    }
+
+    &-youtube {
+      margin-left: 5px;
+      font-size: 1.5rem;
+      color: rgb(202, 45, 45);
+    }
+
+    &-youtube:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__remove {
+    width: 80px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    color: white;
+    background-color: $primary-color;
+    @include center-div;
+  }
+
+  &__remove:hover {
+    background-color: $secondary-color;
+    color: white !important;
+    border-color: $secondary-color !important;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  &__detail {
+    @include border-shadow(rgba(0, 0, 0, 0.2));
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+    &-img {
+      width: 100%;
+      height: 300px;
+      padding: 10px;
+      // margin-bottom: 15px;
+      background-color: white;
+      @include center-div;
+      &-value {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      &--box:hover {
+        color: white;
+        @include pulse-animation-hover-two($secondary-color, 50);
+        transform: scale(1.1);
+      }
+    }
+
+    &--box {
+      cursor: pointer;
+      height: 100px;
+      @include center-div;
+      flex-direction: column;
+      transition: 0.3s;
+      background-color: white;
+      transition: transform 0.1s ease-out;
+
+      &-grey {
+        background-color: rgb(244, 241, 241);
+      }
+
+      &-row-highlight {
+        @include pulse-animation-one($primary-color, 50);
+        color: white;
+        transform: scale(1.05);
+        border-radius: 5px;
+      }
+
+      &-box-highlight {
+        color: white;
+        @include pulse-animation-two($secondary-color, 50);
+        transform: scale(1.05);
+        border-radius: 5px;
+      }
+
+      > div {
+        text-align: center;
+        @include center-div;
+        font-size: 16px;
+        -webkit-transition: font-size 0.2s ease;
+        -moz-transition: font-size 0.2s ease;
+        -o-transition: font-size 0.2s ease;
+        transition: font-size 0.2s ease;
+      }
+
+      span:hover {
+        cursor: pointer;
+        color: rgb(45, 45, 45);
+      }
+
+      &-expand {
+        z-index: 50;
+        right: 0;
+        margin-top: -24px;
+        margin-left: 130px;
+        width: 37px;
+
+        &-container {
+          @include center-div;
+
+          &-button {
+            font-size: 20px;
+            padding: 2px;
+            color: $medium-grey-color;
+            @include pulse-animation-button($secondary-color, 1s);
+            border-radius: 50px;
+            background-color: white;
+          }
+
+          &-button:hover {
+            cursor: zoom-in;
+            transform: scale(1.4);
+            transition: 0.5s;
+            color: white;
+            @include pulse-animation-button($secondary-color, 0.5s);
+          }
+
+          &-button:active {
+            transform: scale(0.2);
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    @media screen and (max-width: 640px) {
+    }
+
+    &__title {
+      margin-bottom: 10px;
+      &-text {
+        font-size: 12px;
+        width: 90px;
+      }
+    }
+
+    &__remove {
+      width: 60px;
+      height: 30px;
+      font-size: 12px;
+    }
+
+    &__detail {
+      @media screen and (max-width: 640px) {
+        width: 200px;
+
+        &-img {
+          width: 100%;
+          height: 250px;
+          padding: 10px;
+          margin-bottom: 15px;
+          @include center-div;
+          &-value {
+            width: 145px;
+          }
+        }
+      }
+
+      &--box {
+        > div {
+          font-size: 14px;
+        }
+
+        &-expand {
+          @media screen and (max-width: 640px) {
+            margin-left: 80px;
+          }
+        }
+      }
+    }
+  }
+}

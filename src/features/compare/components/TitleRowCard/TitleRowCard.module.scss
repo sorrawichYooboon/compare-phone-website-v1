@@ -1,0 +1,71 @@
+@import "../../../../styles/variables.scss";
+
+.title-row-card {
+  margin-left: 10px;
+  @include animation-fadein;
+  @include border-shadow(rgba(21, 93, 209, 0.2));
+  margin-top: 429px;
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+  text-align: center;
+
+  &__detail {
+    border-radius: 10px;
+
+    @media screen and (min-width: 1024px) {
+      &--box:hover {
+        @include pulse-animation-hover-one($primary-color, 50);
+        color: white;
+        transform: scale(1.1);
+      }
+    }
+
+    &--box {
+      cursor: pointer;
+      padding-top: 10px;
+      height: 100px;
+      transition: 0.3s;
+      transition: transform 0.1s ease-out;
+      @include center-div;
+      background-color: white;
+
+      &-grey {
+        background-color: rgb(244, 241, 241);
+      }
+
+      &-highlight {
+        @include pulse-animation-one($primary-color, 50);
+        color: white;
+        transform: scale(1.05);
+        border-radius: 5px;
+      }
+
+      > span {
+        @include center-div;
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .title-row-card {
+    margin-top: 435px;
+
+    @media screen and (max-width: 640px) {
+      margin-top: 386px;
+      width: 100px;
+    }
+
+    &__detail {
+      &--box {
+        > span {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

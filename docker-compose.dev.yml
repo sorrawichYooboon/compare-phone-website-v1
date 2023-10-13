@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: flowech-app-dev-container
+    image: flowech-app-dev-image
+    build:
+      target: development
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 3505:3000 

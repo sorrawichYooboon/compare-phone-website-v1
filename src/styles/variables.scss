@@ -1,0 +1,301 @@
+$primary-color: #0d203b;
+$secondary-color: #ec723a;
+$tertiary-color: #5f8ddc;
+
+$honey-dew-color: #cee1d4; // Honey Dew color
+$lavender-grey-color: #c1c6d1; // Lavender Web color
+$navajo-white: #ffdea4; // Navajo White color
+
+$medium-grey-color: #a9a9a9; // Dim Gray color
+$white-color: #ffffff;
+$success-color: #6fd649;
+$error-color: #dc3545;
+
+$desktop-max-width: 1242px;
+$desktop-horizontal-layout-padding: 50px;
+$mobile-horizontal-layout-padding: 20px;
+
+$phone-tablet-horizontal-layout-padding: 0px;
+
+@mixin ios-height($calc-height) {
+  @supports (-webkit-touch-callout: none) {
+    min-height: calc(#{$calc-height});
+  }
+}
+
+@mixin android-height($calc-height) {
+  @supports not (-webkit-touch-callout: none) {
+    min-height: calc(#{$calc-height});
+  }
+}
+
+@mixin center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin full-width-height {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin border-shadow($color1) {
+  box-shadow: 0 0 10px 0 $color1;
+  border-radius: 10px;
+}
+
+@mixin animation-fadein {
+  animation: fadeInAnimation ease 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animation-fadeout {
+  animation: fadeOutAnimation ease 0.2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  @keyframes fadeOutAnimation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin animation-text-color($color1, $color2, $color3) {
+  animation: color-change 5s ease infinite;
+
+  @keyframes color-change {
+    0% {
+      color: $color1;
+    }
+    50% {
+      color: $color2;
+    }
+    100% {
+      color: $color3;
+    }
+  }
+}
+
+@mixin animation-background-gradient-color($color1, $color2, $color3, $color4) {
+  background-size: 300% 300%;
+  background-image: linear-gradient(
+    -45deg,
+    $color1 0%,
+    $color2 25%,
+    $color3 51%,
+    $color4 100%
+  );
+  animation: AnimateBG 10s ease infinite;
+}
+
+@mixin pulse-animation-one($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation1 0.3s ease-in;
+  z-index: $z-index;
+
+  @keyframes pulse-animation1 {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.3;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-two($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation2 0.3s ease-in;
+  z-index: $z-index;
+
+  @keyframes pulse-animation2 {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.3;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-hover-one($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation-hover1 0.15s ease-in;
+  z-index: $z-index;
+  border-radius: 5px;
+
+  @keyframes pulse-animation-hover1 {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.3;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-hover-two($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation-hover2 0.15s ease-in;
+  z-index: $z-index;
+  border-radius: 5px;
+
+  @keyframes pulse-animation-hover2 {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.3;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-hover-three($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation-hover3 0.3s ease-in;
+  z-index: $z-index;
+  border-radius: 5px;
+
+  @keyframes pulse-animation-hover3 {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.3;
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-button($color1, $animation-time) {
+  background-color: $color1;
+  animation: pulse-animation-button $animation-time ease-in infinite;
+
+  @keyframes pulse-animation-button {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin pulse-animation-button-hover($color1, $animation-time) {
+  background-color: $color1;
+  animation: pulse-animation-button-hover $animation-time ease-in infinite;
+
+  @keyframes pulse-animation-button-hover {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 0.7;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@mixin pulse-animation-click-action($color1, $z-index) {
+  background-color: $color1;
+  animation: pulse-animation-click-action 0.75s ease-in infinite;
+  z-index: $z-index;
+  border-radius: 5px;
+
+  @keyframes pulse-animation-click-action {
+    0% {
+      box-shadow: 0 0 0 0 $color1;
+      opacity: 0.8;
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(21, 93, 209, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

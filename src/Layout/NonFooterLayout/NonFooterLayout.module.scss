@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+
+.non-footer-layout {
+  &__container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+
+    &--children {
+      overflow-x: hidden;
+      width: $desktop-max-width;
+      padding: 0px $desktop-horizontal-layout-padding;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .non-footer-layout {
+    &__container {
+      height: calc(var(--windowInnerHeight, 100vh) - 140px);
+    }
+
+    &__navbar {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../styles/variables.scss";
+
+.main-layout {
+  &__navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
+  }
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &--children {
+      overflow:hidden;
+      width: $desktop-max-width;
+      padding: 0px $desktop-horizontal-layout-padding;
+
+      @media screen and (max-width: 640px) {
+        padding: 0px $mobile-horizontal-layout-padding;
+      }
+    }
+  }
+}

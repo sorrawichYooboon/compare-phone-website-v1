@@ -1,0 +1,133 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  height: 260px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  &__top {
+    height: 150px;
+    width: 100%;
+    @include center-div;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+    &-container {
+      @include center-div;
+      height: 100%;
+      width: $desktop-max-width;
+      padding: 0px $desktop-horizontal-layout-padding;
+
+      &-left {
+        @include full-width-height;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        &--follow {
+          font-size: 40px;
+          display: flex;
+
+          &-wording {
+            font-weight: 300;
+          }
+
+          &-hash {
+            font-weight: bold;
+            color: $secondary-color;
+            cursor: pointer;
+          }
+
+          &-hash:hover {
+            transition: all 0.2s ease;
+            color: $primary-color;
+          }
+        }
+
+        &--channel {
+          display: flex;
+
+          &-icon {
+            margin-right: 20px;
+            cursor: pointer;
+          }
+
+          &-icon:hover {
+            transition: all 0.2s ease;
+            color: $secondary-color;
+          }
+        }
+      }
+
+      &-middle {
+        @include full-width-height;
+        @include center-div;
+        text-align: center;
+      }
+
+      &-right {
+        @include full-width-height;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 70px;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__middle {
+    height: 70px;
+    width: 100%;
+    @include center-div;
+    color: $secondary-color;
+    font-weight: bold;
+    background-color: $primary-color;
+    color: white;
+
+    &-text {
+      cursor: pointer;
+      @include center-div;
+    }
+
+    &-text:hover {
+      transition: all 0.2s ease;
+      color: $secondary-color;
+    }
+  }
+
+  &__bottom {
+    height: 40px;
+    width: 100%;
+    color: $secondary-color;
+    @include center-div;
+
+    &-channel {
+      cursor: pointer;
+      margin: 0 20px;
+    }
+
+    &-channel:hover {
+      transition: all 0.2s ease;
+      color: $primary-color;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    margin-bottom: 80px;
+    &__top {
+      &-container {
+        &-left {
+          display: none;
+        }
+
+        &-right {
+          display: none;
+        }
+      }
+    }
+  }
+}

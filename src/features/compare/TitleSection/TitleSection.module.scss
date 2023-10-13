@@ -1,0 +1,172 @@
+@import "../../../styles/variables.scss";
+
+.title-section {
+  &__background {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("/HysoonWix_minimal_twinkling_stars_and_galaxy_background_of_phon_aa2bd461-8aba-4760-9750-bcfe2a53772d.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: var(--doc-height);
+    width: 100%;
+
+    @media screen and (max-width: 1024px) {
+      background-position: 50% 0%;
+    }
+  }
+
+  &__container {
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (max-width: 1024px) {
+      min-height: calc(var(--doc-height) - 42px);
+    }
+
+    @media screen and (max-width: 640px) {
+      align-items: center;
+    }
+
+    &-glass-background {
+      display: none;
+
+      @media screen and (max-width: 640px) {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 500px;
+        z-index: -1;
+        background: rgba(95, 141, 220, 0.06);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2.4px);
+        -webkit-backdrop-filter: blur(2.4px);
+        border: 1px solid rgba(236, 114, 58, 0.1);
+      }
+
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        height: 420px;
+      }
+    }
+
+    &--title {
+      color: white;
+      font-size: 100px;
+      font-weight: bold;
+      transition: all 0.5s ease;
+
+      @media screen and (max-width: 640px) {
+        font-size: 90px;
+      }
+
+      @media screen and (max-width: 480px) {
+        font-size: 64px;
+      }
+    }
+
+    &--subtitle {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      transition: all 0.5s ease;
+
+      @media screen and (max-width: 640px) {
+        font-size: 28px;
+      }
+
+      @media screen and (max-width: 480px) {
+        font-size: 24px;
+      }
+    }
+
+    &--description {
+      margin-top: 100px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      white-space: pre-line;
+      transition: all 0.5s ease;
+
+      @media screen and (max-width: 1024px) {
+        font-size: 18px;
+      }
+
+      @media screen and (max-width: 640px) {
+        text-align: center;
+        margin-top: 0px;
+        font-size: 14px;
+      }
+
+      @media screen and (max-width: 480px) {
+        font-size: 10px;
+      }
+    }
+
+    &--goto-search {
+      transition: all 0.5s ease;
+      margin-top: 20px;
+      background-color: $secondary-color;
+      width: 250px;
+      color: white;
+      height: 45px;
+      @include center-div;
+      border-radius: 50px;
+      font-weight: bold;
+      @include pulse-animation-button($secondary-color, 1s);
+      transition: all 0.5s ease;
+
+      @media screen and (max-width: 480px) {
+        width: 200px;
+      }
+
+      &-arrow {
+        color: $secondary-color;
+        margin-left: 10px;
+      }
+    }
+
+    &--goto-search:hover {
+      color: $secondary-color;
+      width: 300px;
+      @include pulse-animation-button-hover(white, 0.5s);
+
+      @media screen and (max-width: 480px) {
+        width: 250px;
+      }
+    }
+
+    &--goto-mostsearch {
+      margin-top: 50px;
+      display: flex;
+      justify-content: flex-end;
+      transition: all 0.5s ease;
+
+      &-button {
+        transition: all 0.5s ease;
+        background-color: $secondary-color;
+        width: 50px;
+        color: white;
+        height: 50px;
+        @include center-div;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        @include pulse-animation-button($secondary-color, 1s);
+      }
+
+      &-button:hover {
+        color: $secondary-color;
+        @include pulse-animation-button-hover($secondary-color, 0.5s);
+        background-color: white;
+      }
+    }
+  }
+
+  &__navigation-phone-container {
+    display: none;
+  }
+}

@@ -1,0 +1,306 @@
+@import "../../styles/variables.scss";
+
+.minor-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 50px;
+  @include center-div;
+  transition: box-shadow 0.5s ease;
+  transition: all 0.5s ease;
+
+  &__scrolling {
+    background-color: $primary-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  &__non-footer-layout-background {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &__container {
+    width: $desktop-max-width;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px $desktop-horizontal-layout-padding;
+
+    &-left {
+      color: $white-color;
+      display: flex;
+
+      &-non-footer-layout {
+        color: $primary-color;
+      }
+
+      &-language {
+        margin-right: 10px;
+
+        &--thai {
+          cursor: pointer;
+        }
+
+        &--middle {
+          cursor: default;
+        }
+
+        &--english {
+          cursor: pointer;
+        }
+
+        &--thai:hover,
+        &--english:hover {
+          transition: all 0.2s ease;
+          color: $secondary-color;
+        }
+      }
+
+      &--left-side {
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      &--left-side:hover {
+        transition: all 0.2s ease;
+        color: $secondary-color;
+      }
+    }
+
+    &--right-side {
+      text-align: center;
+      color: $white-color;
+      &-compare {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-left: 20px;
+      }
+
+      &-compare:hover {
+        color: $secondary-color;
+        font-weight: bold;
+      }
+
+      &-non-footer-layout {
+        color: $primary-color;
+      }
+    }
+
+    &--right-side {
+      text-align: center;
+      color: white;
+      &-display-name {
+        transition: all 0.2s ease;
+        margin-left: 20px;
+        background-color: $primary-color;
+        border-radius: 10px;
+        padding: 5px;
+        @include animation-background-gradient-color(
+          $primary-color,
+          $secondary-color,
+          $primary-color,
+          $secondary-color
+        );
+      }
+
+      &-non-footer-layout {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__phone-container {
+    display: none;
+  }
+
+  &__overlay-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .minor-navbar {
+    display: block;
+
+    &__container {
+      display: none;
+    }
+
+    &__phone-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 $desktop-horizontal-layout-padding;
+      height: 42px;
+      transition: all 0.5s ease;
+
+      &-scroll {
+        background-color: $primary-color;
+      }
+
+      @media screen and (max-width: 640px) {
+        padding: 0 $mobile-horizontal-layout-padding;
+      }
+
+      &--language {
+        font-size: 12px;
+        color: white;
+        &-thai {
+          cursor: pointer;
+        }
+
+        &-middle {
+          cursor: default;
+        }
+
+        &-english {
+          cursor: pointer;
+        }
+
+        &-thai:hover,
+        &-english:hover {
+          transition: all 0.2s ease;
+          color: $secondary-color;
+        }
+
+        &-non-footer-layout {
+          color: $primary-color;
+        }
+      }
+
+      &--logo {
+        cursor: pointer;
+        font-size: 28px;
+        font-weight: bold;
+        color: white;
+
+        &-non-footer-layout {
+          color: $primary-color;
+        }
+      }
+
+      &--burger {
+        cursor: pointer;
+        font-size: 20px;
+        color: white;
+
+        &-non-footer-layout {
+          color: $primary-color;
+        }
+      }
+    }
+
+    &__overlay-container {
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+
+      &-left {
+        width: 100%;
+      }
+
+      &-side {
+        @include full-width-height;
+        display: flex;
+        justify-content: flex-end;
+
+        &-container {
+          background-color: $primary-color;
+          width: 260px;
+          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+          padding: 10px;
+
+          &-close {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            &-button {
+              cursor: pointer;
+              font-size: 28px;
+              color: white;
+            }
+          }
+        }
+
+        &-list {
+          display: flex;
+          flex-direction: column;
+
+          &-text {
+            height: 70px;
+            border-bottom: 1px solid $secondary-color;
+            display: flex;
+            align-items: center;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  @include center-div;
+
+  &--logout {
+    @include center-div;
+    flex-direction: column;
+    text-align: center;
+
+    &-icon {
+      font-size: 50px;
+      color: $secondary-color;
+    }
+
+    &-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    &-description {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    &-button {
+      border: 1px solid $secondary-color;
+      color: $secondary-color;
+      height: 50px;
+      width: 100%;
+      border-radius: 10px;
+      @include center-div;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+      margin-top: 20px;
+    }
+
+    &-button:hover {
+      @include pulse-animation-button($secondary-color, 0.5s);
+      background-color: white;
+    }
+
+    &-cancel-button {
+      background-color: $secondary-color;
+      color: $white-color;
+      height: 50px;
+      width: 100%;
+      border-radius: 10px;
+      @include center-div;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+      margin-top: 20px;
+    }
+
+    &-cancel-button:hover {
+      @include pulse-animation-button($secondary-color, 0.5s);
+    }
+  }
+}
